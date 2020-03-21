@@ -1,11 +1,24 @@
-﻿<nav class="navbar navbar-inverse">
+﻿<nav class="navbar navbar-inverse navbar-static-top ">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="/">Personel Yonetim Sistemi</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="@ViewBag.departman"><a href="/departman">Departmanlar</a></li>
-            <li class="@ViewBag.personel" ><a href="/personel">Personeller</a></li>
+            @*<li class="@ViewBag.departman"><a href="/departman">Departmanlar</a></li>*@
+
+            <li class="dropdown @ViewBag.departman">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Departmanlar
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/departman">Listele</a></li>
+                    <li><a href="/departman/yeni">Ekle</a></li>
+                    <li><a href="#">Güncelle</a></li>
+                    <li><a href="#">Sil</a></li>
+                </ul>
+            </li>
+            <li class="@ViewBag.personel"><a href="/personel">Personeller</a></li>
             <li><a href="#">Giriş Yap</a></li>
             <li><a href="#">Üye Ol</a></li>
         </ul>
