@@ -4,5 +4,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>YeniDepartmanEkle</h2>
+<h2 class="help-block">Yeni Departman Ekle</h2>
+<hr />
+<form method="post">
+    <div class="form-group">
+        <label>
+            Departman Adı
+        </label>
+        <input type="text" name="departmanadi" class="form-control input-group-sm" />
+
+    </div>
+    <button type="submit" class="btn btn-success">Ekle</button>
+    <button type="reset" class="btn btn-danger">Vazgeç</button>
+</form>
 

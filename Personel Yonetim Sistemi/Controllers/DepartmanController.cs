@@ -20,10 +20,30 @@ namespace Personel_Yonetim_Sistemi.Controllers
             @ViewBag.departman = "active";
             return View(model);
         }
+
         [Route("departman/yeni")]
+        [HttpGet]
         public ActionResult YeniDepartmanEkle()
         {
             return View();
         }
+
+
+        [Route("departman/yeni")]
+        [HttpPost]
+        public ActionResult YeniDepartmanEkle(string departmanadi)
+        {
+
+            var departman = new Departman();
+            departman.Ad = departmanadi;
+            db.Departman.Add(departman);
+            db.SaveChanges();
+            return RedirectToRoute("");
+               
+        
+        }
+
+
+
     }
 }
