@@ -1,8 +1,49 @@
-﻿
+﻿@using Personel_Yonetim_Sistemi.Models.EntityFramework
+@model List<Departman>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Departman</h2>
+<h2 class="help-block">Departmanlar</h2>
+<hr />
+<table id="departmanlar" class="table table-bordered ">
+    <thead>
+    <th>
+        #
+    </th>
+    <th>
+        Departman Adı
+    </th>
+    <th>
+        Güncelle
+    </th>
+    <th>
+        Sil
+    </th>
+    </thead>
+    <tbody>
+
+        @foreach (var departman in Model)
+        {
+            <tr>
+                <td>
+                    @departman.Id
+                </td>
+                <td>
+                    @departman.Ad
+                </td>
+                <td>
+                    <a href="" class="btn btn-primary">Güncelle</a>
+                </td>
+                <td>
+                    <a href="" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<a href="" class="btn btn-success">Yeni Departman Ekle +</a>
 
