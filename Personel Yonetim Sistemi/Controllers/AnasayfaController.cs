@@ -6,14 +6,12 @@ using System.Web.Mvc;
 
 namespace Personel_Yonetim_Sistemi.Controllers
 {
-    public class DepartmanController : Controller
+    public class AnasayfaController : Controller
     {
-        // GET: Departman
-
-        [Route("departman")]
+        // GET: Anasayfa
+        [Route("")]
         public ActionResult Index()
         {
-            @ViewBag.departman = "active";
             return View();
         }
     }

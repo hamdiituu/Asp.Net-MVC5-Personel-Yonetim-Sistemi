@@ -9,13 +9,20 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>_Layout</title>
-    
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div> 
+    <div>
         @Html.Partial("_Navbar")
-
-        @RenderBody()
+        <div class="container">
+            @RenderBody()
+        </div>
+        
     </div>
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/jquery-1.9.1.intellisense.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
+
 </html>
