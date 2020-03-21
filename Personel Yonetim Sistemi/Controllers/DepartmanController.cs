@@ -38,7 +38,7 @@ namespace Personel_Yonetim_Sistemi.Controllers
             departman.Ad = departmanadi;
             db.Departman.Add(departman);
             db.SaveChanges();
-            return RedirectToRoute("");
+            return RedirectToRoute("departman");
                
         
         }
