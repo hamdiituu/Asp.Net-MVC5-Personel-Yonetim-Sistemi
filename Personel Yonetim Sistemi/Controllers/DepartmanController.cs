@@ -25,6 +25,7 @@ namespace Personel_Yonetim_Sistemi.Controllers
         [HttpGet]
         public ActionResult YeniDepartmanEkle()
         {
+            ViewBag.action = "yeni";
             ViewBag.button = "Ekle";
 
             return View();
@@ -35,14 +36,15 @@ namespace Personel_Yonetim_Sistemi.Controllers
         [HttpPost]
         public ActionResult YeniDepartmanEkle(string Ad)
         {
-
+            
             var departman = new Departman();
             departman.Ad = Ad;
+            departman.Id = 0;
             db.Departman.Add(departman);
             db.SaveChanges();
             return RedirectToRoute("departman");
-               
-        
+
+
         }
 
         [Route("departman/guncelle/{id}")]
@@ -50,7 +52,7 @@ namespace Personel_Yonetim_Sistemi.Controllers
         {
 
             var model = db.Departman.Find(id);
-            
+
             if (model == null)
             {
                 ViewBag.departmanadi = "Hatalı Seçim Yaptınız.";
@@ -62,9 +64,9 @@ namespace Personel_Yonetim_Sistemi.Controllers
                 ViewBag.departmanId = model.Id;
 
             }
-
+            ViewBag.action = "guncelle";
             ViewBag.button = "Güncelle";
-            
+
             return View("YeniDepartmanEkle");
         }
 
@@ -72,12 +74,12 @@ namespace Personel_Yonetim_Sistemi.Controllers
         [HttpPost]
         public ActionResult Guncelle(Departman model)
         {
-
+            
             var departman = new Departman();
 
 
             var guncellenecekDepertman = db.Departman.Find(model.Id);
-            if(guncellenecekDepertman == null)
+            if (guncellenecekDepertman == null)
             {
                 return HttpNotFound();
             }
@@ -85,9 +87,26 @@ namespace Personel_Yonetim_Sistemi.Controllers
             guncellenecekDepertman.Ad = model.Ad;
 
             db.SaveChanges();
-            
+
             return RedirectToRoute("departman");
 
+        }
+
+        [Route("departman/sil/{id}")]
+        [HttpGet]
+        public ActionResult Sil(int id)
+        {
+
+            var silinecekDep = db.Departman.Find(id);
+            if(silinecekDep == null)
+            {
+                return HttpNotFound();
+            }
+
+            db.Departman.Remove(silinecekDep);
+            db.SaveChanges();
+
+            return RedirectToRoute("departman");
 
         }
 
