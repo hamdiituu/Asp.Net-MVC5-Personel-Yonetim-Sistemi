@@ -85,7 +85,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PersonelYonetimSistemiEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PersonelYonetimSistemiEntities" annotation:LazyLoadingEnabled="false">
           <EntitySet Name="Departman" EntityType="Self.Departman" />
           <EntitySet Name="Personel" EntityType="Self.Personel" />
           <AssociationSet Name="FK_Personel_Departman" Association="Self.FK_Personel_Departman">

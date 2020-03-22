@@ -18,6 +18,7 @@ namespace Personel_Yonetim_Sistemi.Models.EntityFramework
         public PersonelYonetimSistemiEntities()
             : base("name=PersonelYonetimSistemiEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

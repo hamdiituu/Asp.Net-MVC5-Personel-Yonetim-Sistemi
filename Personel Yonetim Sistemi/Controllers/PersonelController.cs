@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity
 
 namespace Personel_Yonetim_Sistemi.Controllers
 {
@@ -16,7 +17,7 @@ namespace Personel_Yonetim_Sistemi.Controllers
         {
             @ViewBag.personel = "active";
 
-            var model = db.Personel.ToList();
+            var model = db.Personel.Include(x=>x.Departman).ToList();
 
             return View(model);
         }

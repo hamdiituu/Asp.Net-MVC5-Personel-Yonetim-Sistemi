@@ -9,18 +9,19 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            
+
             <th>Departman Id</th>
             <th>Ad</th>
             <th>Soyad</th>
             <th>Maaş</th>
+            <th>Yaş</th>
             <th>Doğum Tarihi</th>
             <th>Cinsiyet</th>
             <th>Evli Mi?</th>
             <th>Güncelle</th>
             <th>Sil</th>
-           
-            <tr>
+
+<tr>
     </thead>
     <tbody>
 
@@ -28,7 +29,7 @@
         {
         <tr>
             <td>
-                @personel.DepartmanId
+                @personel.Departman.Ad
             </td>
             <td>
                 @personel.Ad
@@ -40,13 +41,16 @@
                 @personel.Maas ₺
             </td>
             <td>
-                @personel.DogumTarihi
+                @(DateTime.Now.Year - personel.DogumTarihi.Value.Year)
             </td>
             <td>
-                @personel.Cinsiyet
+                @personel.DogumTarihi.Value.ToString("dd-MM-yy")
             </td>
             <td>
-                @personel.EvliMi
+                @(personel.Cinsiyet ? "Erkek" : "Kadın")
+            </td>
+            <td>
+                @(personel.EvliMi ? "Evet" : "Hayır")
             </td>
             <td>
                 <a class="btn btn-primary" href="/personel/guncelle/@personel.Id">Güncelle</a>
