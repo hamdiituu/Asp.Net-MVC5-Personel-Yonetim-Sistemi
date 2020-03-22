@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Personel_Yonetim_Sistemi.Models.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,12 +9,16 @@ namespace Personel_Yonetim_Sistemi.Controllers
 {
     public class PersonelController : Controller
     {
+        PersonelYonetimSistemiEntities db = new PersonelYonetimSistemiEntities();
         // GET: Personel
         [Route("personel")]
         public ActionResult Index()
         {
             @ViewBag.personel = "active";
-            return View();
+
+            var model = db.Personel.ToList();
+
+            return View(model);
         }
     }
 }

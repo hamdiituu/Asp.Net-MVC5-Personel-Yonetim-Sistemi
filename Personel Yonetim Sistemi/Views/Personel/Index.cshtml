@@ -1,8 +1,63 @@
-﻿
+﻿@model List<Personel_Yonetim_Sistemi.Models.EntityFramework.Personel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Personel</h2>
+<h2 class="help-block">Personel</h2>
+<hr />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            
+            <th>Departman Id</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Maaş</th>
+            <th>Doğum Tarihi</th>
+            <th>Cinsiyet</th>
+            <th>Evli Mi?</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+           
+            <tr>
+    </thead>
+    <tbody>
 
+        @foreach (var personel in Model)
+        {
+        <tr>
+            <td>
+                @personel.DepartmanId
+            </td>
+            <td>
+                @personel.Ad
+            </td>
+            <td>
+                @personel.Soyad
+            </td>
+            <td>
+                @personel.Maas ₺
+            </td>
+            <td>
+                @personel.DogumTarihi
+            </td>
+            <td>
+                @personel.Cinsiyet
+            </td>
+            <td>
+                @personel.EvliMi
+            </td>
+            <td>
+                <a class="btn btn-primary" href="/personel/guncelle/@personel.Id">Güncelle</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" href="/personel/sil/@personel.Id">Sil</a>
+            </td>
+        </tr>
+        }
+
+
+    </tbody>
+</table>
+<a class="btn btn-success" href="/personel/yeni">Yeni Personel Ekle</a>
