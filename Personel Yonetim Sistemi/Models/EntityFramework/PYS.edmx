@@ -67,7 +67,6 @@
           <Property Name="DepartmanId" Type="Int32" />
           <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Yas" Type="Byte" />
           <Property Name="Maas" Type="Int32" />
           <Property Name="DogumTarihi" Type="DateTime" Precision="0" />
           <Property Name="Cinsiyet" Type="Boolean" Nullable="false" />
@@ -115,7 +114,6 @@
                 <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
                 <ScalarProperty Name="Ad" ColumnName="Ad" />
                 <ScalarProperty Name="Soyad" ColumnName="Soyad" />
-                <ScalarProperty Name="Yas" ColumnName="Yas" />
                 <ScalarProperty Name="Maas" ColumnName="Maas" />
                 <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
                 <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
