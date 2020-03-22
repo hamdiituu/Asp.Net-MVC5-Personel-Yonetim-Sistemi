@@ -25,23 +25,72 @@ namespace Personel_Yonetim_Sistemi.Controllers
         [HttpGet]
         public ActionResult YeniDepartmanEkle()
         {
+            ViewBag.button = "Ekle";
+
             return View();
         }
 
 
         [Route("departman/yeni")]
         [HttpPost]
-        public ActionResult YeniDepartmanEkle(string departmanadi)
+        public ActionResult YeniDepartmanEkle(string Ad)
         {
 
             var departman = new Departman();
-            departman.Ad = departmanadi;
+            departman.Ad = Ad;
             db.Departman.Add(departman);
             db.SaveChanges();
             return RedirectToRoute("departman");
                
         
         }
+
+        [Route("departman/guncelle/{id}")]
+        public ActionResult DepartmanGuncelle(int id)
+        {
+
+            var model = db.Departman.Find(id);
+            
+            if (model == null)
+            {
+                ViewBag.departmanadi = "Hatalı Seçim Yaptınız.";
+            }
+            else
+            {
+
+                ViewBag.departmanadi = model.Ad;
+                ViewBag.departmanId = model.Id;
+
+            }
+
+            ViewBag.button = "Güncelle";
+            
+            return View("YeniDepartmanEkle");
+        }
+
+        [Route("departman/guncelle")]
+        [HttpPost]
+        public ActionResult Guncelle(Departman model)
+        {
+
+            var departman = new Departman();
+
+
+            var guncellenecekDepertman = db.Departman.Find(model.Id);
+            if(guncellenecekDepertman == null)
+            {
+                return HttpNotFound();
+            }
+
+            guncellenecekDepertman.Ad = model.Ad;
+
+            db.SaveChanges();
+            
+            return RedirectToRoute("departman");
+
+
+        }
+
 
 
 

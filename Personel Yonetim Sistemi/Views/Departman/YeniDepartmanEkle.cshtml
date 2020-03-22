@@ -4,17 +4,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="help-block">Yeni Departman Ekle</h2>
+    <h2 class="help-block">Departman @ViewBag.button</h2>
 <hr />
-<form method="post">
+<form method="post" action="/departman/guncelle">
     <div class="form-group">
         <label>
             Departman Adı
         </label>
-        <input type="text" name="departmanadi" class="form-control input-group-sm" />
 
+        <input type="text" name="Ad" placeholder="@ViewBag.departmanAdi" class="form-control input-group-sm" />
+        
+        <input type="hidden" name="id" value="@ViewBag.departmanId" />
     </div>
-    <button type="submit" class="btn btn-success">Ekle</button>
+    <button type="submit" class="btn btn-success">@ViewBag.button</button>
     <button type="reset" class="btn btn-danger">Vazgeç</button>
 </form>
 
