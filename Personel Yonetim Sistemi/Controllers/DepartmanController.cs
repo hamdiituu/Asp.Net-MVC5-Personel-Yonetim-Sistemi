@@ -17,7 +17,7 @@ namespace Personel_Yonetim_Sistemi.Controllers
         public ActionResult Index()
         {
             var model = db.Departman.ToList();
-            @ViewBag.departman = "active";
+            ViewBag.departman = "active";
             return View(model);
         }
 

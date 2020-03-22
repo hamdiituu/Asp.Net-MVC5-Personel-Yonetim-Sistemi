@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Data.Entity
+using System.Data.Entity;
 
 namespace Personel_Yonetim_Sistemi.Controllers
 {
@@ -15,11 +15,30 @@ namespace Personel_Yonetim_Sistemi.Controllers
         [Route("personel")]
         public ActionResult Index()
         {
-            @ViewBag.personel = "active";
+            ViewBag.personel = "active";
 
             var model = db.Personel.Include(x=>x.Departman).ToList();
 
             return View(model);
         }
+        [Route("personel/yeni")]
+        [HttpGet]
+        public ActionResult Yeni()
+        {
+            ViewBag.action = "yeni";
+            ViewBag.personel = "active";
+            ViewBag.button = "Ekle";
+            return View("Yeni");
+        }
+
+        [Route("personel/yeni")]
+        [HttpPost]
+        public ActionResult Yeni(Personel personel)
+        {
+        
+
+            return View();
+        }
+
     }
 }

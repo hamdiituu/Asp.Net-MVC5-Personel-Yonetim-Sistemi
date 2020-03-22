@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="help-block">Personel @ViewBag.button</h2>
+<hr />
+<form method="post" action="/personel/@ViewBag.action">
+    <div class="form-group ">
+
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                Departman
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+            </ul>
+        </div>
+    </div>
+
+
+    <label>
+        Personel Adı
+    </label>
+
+    <input type="text" name="Ad" class="form-control input-group-sm" />
+    <label>
+        Personel Soyadı
+    </label>
+
+    <input type="text" name="Soyad" class="form-control input-group-sm" />
+
+    <label>
+        Personel Maaş
+    </label>
+
+    <input type="text" name="Maas" class="form-control input-group-sm" />
+
+    <label>
+        Personel Doğum Tarihi
+    </label>
+
+    <input type="datetime" name="DogumTarihi" class="form-control datepicker" />
+    <div>
+        <label>
+            Personel Cinsiyet
+        </label>
+    </div>
+    <input type="radio" name="Cinsiyet" class="form-control input-group-sm" />
+    <input type="radio" name="Cinsiyet" class="form-control input-group-sm" />
+
+    <label>
+        Personel Evli Mi ?
+    </label>
+
+    <input type="checkbox" name="EvliMi" class="form-control input-group-sm" />
+
+
+   
+    <button type="submit" class="btn btn-success">@ViewBag.button</button>
+    <a href="/personel" type="reset" class="btn btn-danger">Vazgeç</a>
+</form>
+
+
+@*public int Id { get; set; }
+        public Nullable<int>
+     DepartmanId { get; set; }
+    public string Ad { get; set; }
+    public string Soyad { get; set; }
+    public Nullable<int>
+        Maas { get; set; }
+        public Nullable<System.DateTime>
+            DogumTarihi { get; set; }
+            public bool Cinsiyet { get; set; }
+            public bool EvliMi { get; set; }*@
